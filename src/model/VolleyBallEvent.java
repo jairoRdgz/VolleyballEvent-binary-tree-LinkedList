@@ -18,7 +18,7 @@ public class VolleyBallEvent {
 		this.first = first;
 	}
 	
-	public void addToTree(int id, String firstName, String lastName, String email, int gender, int country, String photo, String birthday) {
+	public void addToTree(int id, String firstName, String lastName, String email, String gender, int country, String photo, String birthday) {
 		Participant newParticipant = new Participant(id,firstName, lastName, email, gender,country, photo, birthday);
 		if(root == null) {
 			root = newParticipant;
@@ -52,7 +52,7 @@ public class VolleyBallEvent {
 		line = br.readLine();
 		while(line != null){
 			String[] temporalDataArray = line.split(",");
-			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],Integer.parseInt(temporalDataArray[4]),Integer.parseInt(temporalDataArray[5]),temporalDataArray[6],temporalDataArray[7]);
+			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],Integer.parseInt(temporalDataArray[5]),temporalDataArray[6],temporalDataArray[7]);
 			line = br.readLine();
 		}
 		fileReader.close();

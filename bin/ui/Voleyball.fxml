@@ -12,20 +12,20 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="ui.VolleyBallController">
   <tabs>
-    <Tab text="Tab 1">
+    <Tab text="Untitled Tab 1">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="638.0">
                <children>
-                  <Pane layoutX="24.0" layoutY="65.0" prefHeight="98.0" prefWidth="342.0" style="-fx-border-color: #000000; -fx-border-radius: 5;">
+                  <Pane layoutX="29.0" layoutY="65.0" prefHeight="98.0" prefWidth="331.0">
                      <children>
                         <Button layoutX="187.0" layoutY="36.0" mnemonicParsing="false" onAction="#exportFile" text="Export" />
                         <Button layoutX="259.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadFile" text="Load" />
-                        <TextField fx:id="path" editable="false" layoutX="6.0" layoutY="37.0" prefHeight="25.0" prefWidth="157.0" />
+                        <TextField fx:id="path" layoutX="6.0" layoutY="37.0" prefHeight="25.0" prefWidth="157.0" />
                         <Label layoutX="26.0" layoutY="6.0" text="Load Data" />
-                        <Label fx:id="message" layoutX="7.0" layoutY="67.0" text="The possible guest to the event has been loaded succesfully" />
+                        <Label layoutY="67.0" text="The possible guest to the event has been loaded succesfully" />
                      </children>
                   </Pane>
-                  <Pane layoutX="25.0" layoutY="174.0" prefHeight="80.0" prefWidth="340.0" style="-fx-border-color: #000000; -fx-border-radius: 6;">
+                  <Pane layoutX="25.0" layoutY="174.0" prefHeight="80.0" prefWidth="350.0">
                      <children>
                         <Button layoutX="196.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchSpectators" text="Search" />
                         <Label layoutX="8.0" layoutY="32.0" text="Id" />
@@ -37,7 +37,7 @@
                         <Label fx:id="timeSpectators" layoutX="298.0" layoutY="24.0" prefHeight="17.0" prefWidth="43.0" />
                      </children>
                   </Pane>
-                  <Pane layoutX="23.0" layoutY="269.0" prefHeight="80.0" prefWidth="344.0" style="-fx-border-color: #000000; -fx-border-radius: 6;">
+                  <Pane layoutX="23.0" layoutY="269.0" prefHeight="80.0" prefWidth="350.0">
                      <children>
                         <Button layoutX="196.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchParticipant" text="Search" />
                         <Label layoutX="8.0" layoutY="32.0" text="Id" />
@@ -49,31 +49,31 @@
                         <Label fx:id="timeParticipant" layoutX="297.0" layoutY="30.0" prefHeight="17.0" prefWidth="43.0" />
                      </children>
                   </Pane>
-                  <Label layoutX="224.0" layoutY="-5.0" prefHeight="62.0" prefWidth="190.0" text="Banner">
+                  <Label layoutX="187.0" layoutY="6.0" prefHeight="62.0" prefWidth="190.0" text="Banner">
                      <font>
                         <Font name="Comic Sans MS" size="56.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="377.0" layoutY="64.0" prefHeight="291.0" prefWidth="257.0" style="-fx-border-color: #000000; -fx-border-radius: 6;">
+                  <Pane layoutX="377.0" layoutY="74.0" prefHeight="281.0" prefWidth="256.0">
                      <children>
                         <Label layoutX="14.0" layoutY="6.0" text="Show Data" />
-                        <ImageView fx:id="image" fitHeight="87.0" fitWidth="107.0" layoutX="71.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: true;" />
+                        <ImageView fx:id="image" fitHeight="87.0" fitWidth="107.0" layoutX="71.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
                         <Label fx:id="data" layoutX="28.0" layoutY="141.0" prefHeight="127.0" prefWidth="203.0" />
                      </children>
                   </Pane>
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Tab 2">
+    <Tab text="Untitled Tab 2">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Pane layoutX="15.0" layoutY="9.0" prefHeight="260.0" prefWidth="623.0" style="-fx-border-color: #000000; -fx-border-radius: 6;">
+                  <Pane layoutX="15.0" layoutY="9.0" prefHeight="260.0" prefWidth="623.0">
                      <children>
                         <Label layoutX="14.0" layoutY="6.0" text="Show Structure" />
                      </children>
                   </Pane>
-                  <Pane layoutX="15.0" layoutY="276.0" prefHeight="83.0" prefWidth="628.0" style="-fx-border-radius: 6; -fx-border-color: #000000;">
+                  <Pane layoutX="15.0" layoutY="270.0" prefHeight="83.0" prefWidth="628.0">
                      <children>
                         <Label layoutX="14.0" layoutY="6.0" text="Options" />
                         <Button layoutX="179.0" layoutY="33.0" mnemonicParsing="false" text="Participant" />
