@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -7,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import model.VolleyBallEvent;
 
 public class VolleyBallController {
 
@@ -18,6 +22,9 @@ public class VolleyBallController {
 
     @FXML
     private TextField path;
+
+    @FXML
+    private Label message;
 
     @FXML
     private TextField idSpectators;
@@ -42,38 +49,36 @@ public class VolleyBallController {
 
     @FXML
     private Label data;
+    
+    private VolleyBallEvent volleyBallEvent;
 
     @FXML
     void exportFile(ActionEvent event) {
-
+    	Stage stage = new Stage();
+    	FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Open Resource File");
+    	fileChooser.showOpenDialog(stage);
     }
 
     @FXML
-    void loadFile(ActionEvent event) {
-
+    void loadFile(ActionEvent event) throws IOException {
+    	path.setText(volleyBallEvent.LoadFileAndAddToTree());
+    	message.setVisible(true);
     }
 
     @FXML
     void searchParticipant(ActionEvent event) {
-
+    	
     }
 
     @FXML
     void searchSpectators(ActionEvent event) {
-
+    	
     }
 
     @FXML
     void initialize() {
-        assert path != null : "fx:id=\"path\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert idSpectators != null : "fx:id=\"idSpectators\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert spectatorId != null : "fx:id=\"spectatorId\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert timeSpectators != null : "fx:id=\"timeSpectators\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert idParticipant != null : "fx:id=\"idParticipant\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert participantId != null : "fx:id=\"participantId\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert timeParticipant != null : "fx:id=\"timeParticipant\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert image != null : "fx:id=\"image\" was not injected: check your FXML file 'Voleyball.fxml'.";
-        assert data != null : "fx:id=\"data\" was not injected: check your FXML file 'Voleyball.fxml'.";
-
+    	volleyBallEvent = new VolleyBallEvent();
+    	message.setVisible(false);
     }
 }

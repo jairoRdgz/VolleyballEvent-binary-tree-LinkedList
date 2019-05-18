@@ -6,7 +6,7 @@ public class Participant implements Comparable<Participant>{
 	private String lastName;
 	private String email;
 	private String gender;
-	private int country;
+	private String country;
 	private String photo; //this bitch is supossed to be an image
 	private String birthday;
 	private Participant left;
@@ -15,7 +15,7 @@ public class Participant implements Comparable<Participant>{
 	private Participant prev;
 	
 	
-	public Participant(int id, String firstName, String lastName, String email, String gender, int country, String photo, String birthday) {
+	public Participant(int id, String firstName, String lastName, String email, String gender, String country, String photo, String birthday) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -77,12 +77,12 @@ public class Participant implements Comparable<Participant>{
 	}
 
 
-	public int getCountry() {
+	public String getCountry() {
 		return country;
 	}
 
 
-	public void setCountry(int country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
 
