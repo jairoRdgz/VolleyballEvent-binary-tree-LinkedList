@@ -55,12 +55,12 @@ public class VolleyBallEvent {
 		line = br.readLine();
 		while(line != null){
 			String[] temporalDataArray = line.split(",");
-			String[] imgInfo = temporalDataArray[6].split("?");
-			String urls = imgInfo[0];
-			URL url = new URL(urls);
+			
+			URL url = new URL(temporalDataArray[6]);
 			URLConnection conn = url.openConnection();
 			InputStream in = conn.getInputStream();
 			Image img = new Image(in);
+			
 			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],temporalDataArray[5],img,temporalDataArray[7]);
 			addParticipantIntoTree(temporalNewParticipant);
 			line = br.readLine();
@@ -77,6 +77,11 @@ public class VolleyBallEvent {
 		return result;
 	}
 	
+	public Participant searchSpectator(int id) {
+		Participant result = root;
+		
+		return result;
+	}
 	
 	public Participant getRoot() {
 		return root;
