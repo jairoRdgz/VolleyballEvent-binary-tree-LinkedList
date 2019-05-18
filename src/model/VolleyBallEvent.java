@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.scene.image.Image;
 
@@ -71,16 +73,73 @@ public class VolleyBallEvent {
 		return PATH;
 	}
 	
+	public List<Participant> preOrder(){
+		return preOrder(root);
+	}
+	private List<Participant> preOrder(Participant currentNode){
+		List<Participant> l = new ArrayList<Participant>();
+		if(currentNode != null){
+			l.add(currentNode);
+			List<Participant> ll = preOrder(currentNode.getLeft());
+			List<Participant> lr = preOrder(currentNode.getRigth());
+			//System.out.println(ll);
+			//System.out.println(lr);
+			l.addAll(ll);
+			l.addAll(lr);
+		}
+		return l;
+	}
+	
+	
 	public Participant searchParticipant(int id) {
-		Participant result = root;
-		
-		return result;
+		Participant s= new Participant(id,"","","","","",null,"");
+		return searchParticipant(root,s);
+	}
+	
+	private Participant searchParticipant(Participant current, Participant s) {
+		if(current!=null) {
+			if(s.compareTo(current)<0) {
+				if(current.getLeft()!=null){
+					return searchParticipant(current.getLeft(),s);
+				}else {
+					return searchParticipant(current.getRigth(), s);
+				}
+			}else if(s.compareTo(current)>0){
+				if(current.getRigth()!=null) {
+					return searchParticipant(current.getRigth(), s);
+				}else {
+					return searchParticipant(current.getLeft(), s);
+				}
+			}else {
+				return current;
+			}
+		}
+		return current;
 	}
 	
 	public Participant searchSpectator(int id) {
-		Participant result = root;
-		
-		return result;
+		Participant s= new Participant(id,"","","","","",null,"");
+		return searchSpectator(root,s);
+	}
+	private Participant searchSpectator(Participant current, Participant s) {
+		if(current!=null) {
+			if(s.compareTo(current)<0) {
+				if(current.getLeft()!=null){
+					return searchSpectator(current.getLeft(),s);
+				}else {
+					return searchSpectator(current.getRigth(), s);
+				}
+			}else if(s.compareTo(current)>0){
+				if(current.getRigth()!=null) {
+					return searchSpectator(current.getRigth(), s);
+				}else {
+					return searchSpectator(current.getLeft(), s);
+				}
+			}else {
+				return current;
+			}
+		}
+		return current;
 	}
 	
 	public Participant getRoot() {

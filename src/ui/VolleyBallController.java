@@ -96,6 +96,7 @@ public class VolleyBallController {
     	long time = System.currentTimeMillis();
     	try {
     		int id = Integer.parseInt(idParticipant.getText());
+    		showDataInScreen(volleyBallEvent.searchParticipant(id));
     	}catch (NumberFormatException e) {
     		Alert score = new Alert(AlertType.ERROR);
         	score.setTitle(" IV Copa Panamericana de Voleibol Masculino Sub-21");
@@ -103,7 +104,7 @@ public class VolleyBallController {
         	score.setContentText("Please introduce a number");
         	score.show();
     	}
-    	timeParticipant.setText(""+ (System.currentTimeMillis()-time));
+    	timeParticipant.setText((System.currentTimeMillis()-time)/1000+" segs");
     }
 
     @FXML
@@ -111,6 +112,7 @@ public class VolleyBallController {
     	long time = System.currentTimeMillis();
     	try {
     		int id = Integer.parseInt(idSpectators.getText());
+    		showDataInScreen(volleyBallEvent.searchSpectator(id));
     	}catch (NumberFormatException e) {
     		Alert score = new Alert(AlertType.ERROR);
         	score.setTitle(" IV Copa Panamericana de Voleibol Masculino Sub-21");
@@ -119,8 +121,7 @@ public class VolleyBallController {
         	score.show();
     	}
     	
-    	
-    	timeSpectators.setText(""+ (System.currentTimeMillis()-time));
+    	timeSpectators.setText((System.currentTimeMillis()-time)/1000+" segs");
     }
     
     public void showDataInScreen(Participant p) {
