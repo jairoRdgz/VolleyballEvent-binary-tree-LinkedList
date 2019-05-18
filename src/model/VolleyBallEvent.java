@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+import javafx.scene.image.Image;
 
 public class VolleyBallEvent {
 	
@@ -50,7 +55,13 @@ public class VolleyBallEvent {
 		line = br.readLine();
 		while(line != null){
 			String[] temporalDataArray = line.split(",");
-			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],temporalDataArray[5],temporalDataArray[6],temporalDataArray[7]);
+			String[] imgInfo = temporalDataArray[6].split("?");
+			String urls = imgInfo[0];
+			URL url = new URL(urls);
+			URLConnection conn = url.openConnection();
+			InputStream in = conn.getInputStream();
+			Image img = new Image(in);
+			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],temporalDataArray[5],img,temporalDataArray[7]);
 			addParticipantIntoTree(temporalNewParticipant);
 			line = br.readLine();
 		}
@@ -60,6 +71,11 @@ public class VolleyBallEvent {
 		return PATH;
 	}
 	
+	public Participant searchParticipant(int id) {
+		Participant result = root;
+		
+		return result;
+	}
 	
 	
 	public Participant getRoot() {

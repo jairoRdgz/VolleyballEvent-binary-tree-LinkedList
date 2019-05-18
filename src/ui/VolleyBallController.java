@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Participant;
 import model.VolleyBallEvent;
 
 public class VolleyBallController {
@@ -53,6 +54,27 @@ public class VolleyBallController {
     @FXML
     private Label data;
     
+    @FXML
+    private Label id;
+
+    @FXML
+    private Label firstName;
+
+    @FXML
+    private Label lastName;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label gender;
+
+    @FXML
+    private Label country;
+
+    @FXML
+    private Label birthday;
+    
     private VolleyBallEvent volleyBallEvent;
 
     @FXML
@@ -71,6 +93,7 @@ public class VolleyBallController {
 
     @FXML
     void searchParticipant(ActionEvent event) {
+    	long time = System.currentTimeMillis();
     	try {
     		int id = Integer.parseInt(idParticipant.getText());
     	}catch (NumberFormatException e) {
@@ -80,10 +103,12 @@ public class VolleyBallController {
         	score.setContentText("Please introduce a number");
         	score.show();
     	}
+    	timeParticipant.setText(""+ (System.currentTimeMillis()-time));
     }
 
     @FXML
     void searchSpectators(ActionEvent event) {
+    	long time = System.currentTimeMillis();
     	try {
     		int id = Integer.parseInt(idSpectators.getText());
     	}catch (NumberFormatException e) {
@@ -94,6 +119,19 @@ public class VolleyBallController {
         	score.show();
     	}
     	
+    	
+    	timeSpectators.setText(""+ (System.currentTimeMillis()-time));
+    }
+    
+    public void showDataInScreen(Participant p) {
+    	image.setImage(p.getPhoto());
+    	id.setText(p.getId()+"");
+    	firstName.setText(p.getFirstName());
+    	lastName.setText(p.getLastName());
+    	email.setText(p.getEmail());
+    	gender.setText(p.getGender());
+    	country.setText(p.getCountry());
+    	birthday.setText(p.getBirthday());
     }
 
     @FXML

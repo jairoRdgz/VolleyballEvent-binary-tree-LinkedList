@@ -5,12 +5,13 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="ui.VolleyBallController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="652.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.VolleyBallController">
   <tabs>
     <Tab text="Tab 1">
       <content>
@@ -57,8 +58,24 @@
                   <Pane layoutX="377.0" layoutY="64.0" prefHeight="291.0" prefWidth="257.0" style="-fx-border-color: #000000; -fx-border-radius: 6;">
                      <children>
                         <Label layoutX="14.0" layoutY="6.0" text="Show Data" />
-                        <ImageView fx:id="image" fitHeight="87.0" fitWidth="107.0" layoutX="71.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: true;" />
-                        <Label fx:id="data" layoutX="28.0" layoutY="141.0" prefHeight="127.0" prefWidth="203.0" />
+                        <ImageView fx:id="image" fitHeight="87.0" fitWidth="107.0" layoutX="86.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: true;">
+                           <image>
+                              <Image url="@icon.jpg" />
+                           </image></ImageView>
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="14.0" layoutY="138.0" prefHeight="21.0" prefWidth="21.0" text="Id:" />
+                        <Label layoutX="11.0" layoutY="162.0" text="First Name:" />
+                        <Label layoutX="11.0" layoutY="181.0" text="Last Name:" />
+                        <Label layoutX="11.0" layoutY="200.0" text="Email:" />
+                        <Label layoutX="11.0" layoutY="218.0" text="Gender:" />
+                        <Label layoutX="11.0" layoutY="237.0" text="Country:" />
+                        <Label layoutX="12.0" layoutY="262.0" text="Birthday:" />
+                        <Label fx:id="id" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="38.0" layoutY="138.0" prefHeight="21.0" prefWidth="205.0" />
+                        <Label fx:id="firstName" layoutX="73.0" layoutY="162.0" prefHeight="17.0" prefWidth="176.0" />
+                        <Label fx:id="lastName" layoutX="73.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+                        <Label fx:id="email" layoutX="48.0" layoutY="200.0" prefHeight="17.0" prefWidth="203.0" />
+                        <Label fx:id="gender" layoutX="55.0" layoutY="218.0" prefHeight="17.0" prefWidth="197.0" />
+                        <Label fx:id="country" layoutX="57.0" layoutY="237.0" prefHeight="17.0" prefWidth="192.0" />
+                        <Label fx:id="birthday" layoutX="63.0" layoutY="262.0" prefHeight="17.0" prefWidth="188.0" />
                      </children>
                   </Pane>
                </children></AnchorPane>
