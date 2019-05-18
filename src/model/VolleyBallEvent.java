@@ -90,6 +90,33 @@ public class VolleyBallEvent {
 		return l;
 	}
 	
+	public List<Participant> amplitud(){
+		System.out.println("amplitud1");
+		return amplitud(root);
+	}
+	
+	public List<Participant> amplitud(Participant a) {
+		System.out.println("Amplitud2");
+		List<Participant> cola= new ArrayList<Participant>(); 
+		List<Participant> colaAux= new ArrayList<Participant>();
+		Participant aux;
+
+		if (a != null) {
+			System.out.println("if");
+			cola.add(a); 
+			while (cola != null) {
+				colaAux.add(aux=cola.get(0));
+				if (aux.getLeft() != null) {
+					cola.add(aux.getLeft()); 
+				}
+				if (aux.getRigth() != null){
+					cola.add(aux.getRigth()); 
+				}
+				System.out.println("While");
+			} 
+		}
+		return colaAux;
+	}
 	
 	public Participant searchParticipant(int id) {
 		Participant s= new Participant(id,"","","","","",null,"");

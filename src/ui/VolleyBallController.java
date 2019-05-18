@@ -2,6 +2,7 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,8 +88,12 @@ public class VolleyBallController {
 
     @FXML
     void loadFile(ActionEvent event) throws IOException {
-    	path.setText(volleyBallEvent.LoadFileAndAddToTree());
-    	message.setVisible(true);
+    	/*path.setText(volleyBallEvent.LoadFileAndAddToTree());
+    	message.setVisible(true);*/
+    	List<Participant> l = volleyBallEvent.amplitud();
+    	for(int i=0; i<l.size(); i++) {
+    		System.out.println(l.get(i).getId()+"");
+    	}
     }
 
     @FXML
