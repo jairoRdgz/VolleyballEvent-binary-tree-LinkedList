@@ -35,13 +35,16 @@ public class VolleyBallEvent {
 			if(part.compareTo(current) <= 0) {
 				if(current.getLeft() == null) {
 					current.setLeft(part);
+					current.setDepth(current.getDepth()+1);
 				}else{
 					addParticipantIntoTree(part, current.getLeft());
 				}
 			} else{
 				if(current.getRigth() == null) {
 					current.setRigth(part);
+					current.setDepth(current.getDepth()+1);
 				} else {
+					current.setDepth(current.getDepth()+1);
 					addParticipantIntoTree(part, current.getRigth());
 				}
 			}
@@ -63,7 +66,7 @@ public class VolleyBallEvent {
 			InputStream in = conn.getInputStream();
 			Image img = new Image(in);
 			
-			Participant temporalNewParticipant = new Participant(Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],temporalDataArray[5],img,temporalDataArray[7]);
+			Participant temporalNewParticipant = new Participant(0,Integer.parseInt(temporalDataArray[0]),temporalDataArray[1],temporalDataArray[2],temporalDataArray[3],temporalDataArray[4],temporalDataArray[5],img,temporalDataArray[7]);
 			addParticipantIntoTree(temporalNewParticipant);
 			line = br.readLine();
 		}
@@ -71,6 +74,27 @@ public class VolleyBallEvent {
 		br.close();
 		
 		return PATH;
+	}
+	
+	public List<Participant> amplitud(Participant a) { //SE RECIBE LA RAIZ DEL ARBOL
+		return amplitud(root,0);
+	}
+	
+	private List<Participant> amplitud(Participant a, int depth){
+		List<Participant> l = new ArrayList<Participant>();
+		if(a!= null) {
+			if(a.getDepth()==depth) {
+				if(a.getLeft()!=null) {
+					l.add(a.getLeft());
+					amplitud(a.getLeft(),a.getDepth()+1);
+				}
+				if(a.getRigth()!=null) {
+					l.add(a.getRigth());
+					amplitud(a.getRigth(),a.getDepth()+1);
+				}
+			}
+		}
+		return l;
 	}
 	
 	public List<Participant> preOrder(){
@@ -92,7 +116,7 @@ public class VolleyBallEvent {
 	
 	
 	public Participant searchParticipant(int id) {
-		Participant s= new Participant(id,"","","","","",null,"");
+		Participant s= new Participant(0,id,"","","","","",null,"");
 		return searchParticipant(root,s);
 	}
 	
@@ -118,7 +142,7 @@ public class VolleyBallEvent {
 	}
 	
 	public Participant searchSpectator(int id) {
-		Participant s= new Participant(id,"","","","","",null,"");
+		Participant s= new Participant(0,id,"","","","","",null,"");
 		return searchSpectator(root,s);
 	}
 	private Participant searchSpectator(Participant current, Participant s) {
