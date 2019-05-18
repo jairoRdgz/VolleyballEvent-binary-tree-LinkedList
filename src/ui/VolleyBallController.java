@@ -5,11 +5,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.VolleyBallEvent;
 
 public class VolleyBallController {
@@ -68,11 +71,28 @@ public class VolleyBallController {
 
     @FXML
     void searchParticipant(ActionEvent event) {
-    	
+    	try {
+    		int id = Integer.parseInt(idParticipant.getText());
+    	}catch (NumberFormatException e) {
+    		Alert score = new Alert(AlertType.ERROR);
+        	score.setTitle(" IV Copa Panamericana de Voleibol Masculino Sub-21");
+        	score.initStyle(StageStyle.DECORATED);
+        	score.setContentText("Please introduce a number");
+        	score.show();
+    	}
     }
 
     @FXML
     void searchSpectators(ActionEvent event) {
+    	try {
+    		int id = Integer.parseInt(idSpectators.getText());
+    	}catch (NumberFormatException e) {
+    		Alert score = new Alert(AlertType.ERROR);
+        	score.setTitle(" IV Copa Panamericana de Voleibol Masculino Sub-21");
+        	score.initStyle(StageStyle.DECORATED);
+        	score.setContentText("Please introduce a number");
+        	score.show();
+    	}
     	
     }
 

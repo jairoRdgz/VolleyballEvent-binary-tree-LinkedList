@@ -17,7 +17,7 @@ public class Main extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("Voleyball.fxml"));
 		
 		Scene scene = new Scene(root);
-		stage.setTitle("Vojabes International Airport");
+		stage.setTitle(" IV Copa Panamericana de Voleibol Masculino Sub-21");
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
