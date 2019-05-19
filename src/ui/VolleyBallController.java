@@ -88,12 +88,12 @@ public class VolleyBallController {
 
     @FXML
     void loadFile(ActionEvent event) throws IOException {
-    	/*path.setText(volleyBallEvent.LoadFileAndAddToTree());
-    	message.setVisible(true);*/
-    	List<Participant> l = volleyBallEvent.amplitud();
+    	path.setText(volleyBallEvent.LoadFileAndAddToTree());
+    	message.setVisible(true);
+    	/*List<Participant> l = volleyBallEvent.amplitud();
     	for(int i=0; i<l.size(); i++) {
     		System.out.println(l.get(i).getId()+"");
-    	}
+    	}*/
     }
 
     @FXML

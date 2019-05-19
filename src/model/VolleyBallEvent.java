@@ -90,7 +90,7 @@ public class VolleyBallEvent {
 		return l;
 	}
 	
-	public List<Participant> amplitud(){
+	/*public List<Participant> amplitud(){
 		System.out.println("amplitud1");
 		return amplitud(root);
 	}
@@ -116,7 +116,7 @@ public class VolleyBallEvent {
 			} 
 		}
 		return colaAux;
-	}
+	}*/
 	
 	public Participant searchParticipant(int id) {
 		Participant s= new Participant(id,"","","","","",null,"");
