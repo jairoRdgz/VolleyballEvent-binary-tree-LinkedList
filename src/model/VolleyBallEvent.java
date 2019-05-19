@@ -90,33 +90,39 @@ public class VolleyBallEvent {
 		return l;
 	}
 	
-	/*public List<Participant> amplitud(){
-		System.out.println("amplitud1");
-		return amplitud(root);
+	public List<Participant> inOrder(){
+		return inOrder(root);
+	}
+	private List<Participant> inOrder(Participant currentNode){
+		List<Participant> l = new ArrayList<Participant>();
+		if(currentNode != null){
+			List<Participant> ll = inOrder(currentNode.getLeft());
+			List<Participant> lr = inOrder(currentNode.getRigth());
+			//System.out.println(ll);
+			//System.out.println(lr);
+			l.addAll(ll);
+			l.add(currentNode);
+			l.addAll(lr);
+		}
+		return l;
 	}
 	
-	public List<Participant> amplitud(Participant a) {
-		System.out.println("Amplitud2");
-		List<Participant> cola= new ArrayList<Participant>(); 
-		List<Participant> colaAux= new ArrayList<Participant>();
-		Participant aux;
-
-		if (a != null) {
-			System.out.println("if");
-			cola.add(a); 
-			while (cola != null) {
-				colaAux.add(aux=cola.get(0));
-				if (aux.getLeft() != null) {
-					cola.add(aux.getLeft()); 
-				}
-				if (aux.getRigth() != null){
-					cola.add(aux.getRigth()); 
-				}
-				System.out.println("While");
-			} 
+	public List<Participant> posOrder(){
+		return posOrder(root);
+	}
+	private List<Participant> posOrder(Participant currentNode){
+		List<Participant> l = new ArrayList<Participant>();
+		if(currentNode != null){
+			List<Participant> ll = posOrder(currentNode.getLeft());
+			List<Participant> lr = posOrder(currentNode.getRigth());
+			//System.out.println(ll);
+			//System.out.println(lr);
+			l.addAll(ll);
+			l.addAll(lr);
+			l.add(currentNode);
 		}
-		return colaAux;
-	}*/
+		return l;
+	}
 	
 	public Participant searchParticipant(int id) {
 		Participant s= new Participant(id,"","","","","",null,"");
