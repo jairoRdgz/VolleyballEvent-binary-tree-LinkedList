@@ -17,11 +17,11 @@ public class VolleyBallEvent {
 	private Participant root;
 	private Participant first;
 	
-	public static final String PATH = "data/data.csv";
-	
 	public VolleyBallEvent() {
 		
 	}
+	
+	//PARTICIPANTS METHODS
 	
 	public void addParticipantIntoTree(Participant part) {
 		addParticipantIntoTree(part, root);
@@ -52,9 +52,9 @@ public class VolleyBallEvent {
 		}
 	}
 	
-	public String LoadFileAndAddToTree() throws IOException {
-		File file = new File(PATH);
-		FileReader fileReader = new FileReader(file);
+	public String LoadFileAndAddToTree(File path) throws IOException {
+		
+		FileReader fileReader = new FileReader(path);
 		BufferedReader br = new BufferedReader(fileReader);
 		String line = br.readLine();
 		line = br.readLine();
@@ -73,7 +73,31 @@ public class VolleyBallEvent {
 		fileReader.close();
 		br.close();
 		
-		return PATH;
+		return path.getAbsolutePath();
+	}
+	
+	public void choiceAleatoryParticipants(int size) {
+		int m=(int)( size*0.5);
+		for(int i=0;i<m;i++) {
+			int n=(int) (Math.random() * size) + 1;
+			Participant s=searchParticipant(n);
+			addingOficialParticipants(s);
+		}
+	}
+	
+	public void addingOficialParticipants(Participant newOne){
+		if(first == null){
+			first = newOne;
+		}else{
+			Participant current = first;
+			while(current.getNext() != null){
+				current = current.getNext();
+			}
+			current.setNext(newOne);
+			Participant temp = current;
+			current = current.getNext();
+			current.setPrev(temp);
+		}
 	}
 	
 	public List<Participant> amplitud(Participant a) { //SE RECIBE LA RAIZ DEL ARBOL
@@ -94,7 +118,14 @@ public class VolleyBallEvent {
 				}
 			}
 		}
+		mostrarAmplitud(l);
 		return l;
+	}
+	
+	public void mostrarAmplitud(List<Participant> l) {
+		for (int i = 0; i < l.size(); i++) {
+			System.out.println(l.get(i).getDepth() +"\t" +l.get(i).getId() + "\n");
+		}
 	}
 	
 	public List<Participant> preOrder(){

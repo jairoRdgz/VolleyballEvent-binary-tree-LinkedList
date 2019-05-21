@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Participant;
 import model.VolleyBallEvent;
@@ -75,20 +75,32 @@ public class VolleyBallController {
     @FXML
     private Label birthday;
     
-    private VolleyBallEvent volleyBallEvent;
+    private VolleyBallEvent volleyBallEvent; 
+    
+    private FileChooser fileChooser;
+    
+    private File f;
 
     @FXML
-    void exportFile(ActionEvent event) {
-    	Stage stage = new Stage();
-    	FileChooser fileChooser = new FileChooser();
+    void exportFile(ActionEvent event) throws IOException {
+  
+    	fileChooser = new FileChooser();
     	fileChooser.setTitle("Open Resource File");
-    	fileChooser.showOpenDialog(stage);
+    	fileChooser.getExtensionFilters().addAll(
+    			new FileChooser.ExtensionFilter("CSV", "*.csv"));
+    	f = fileChooser.showOpenDialog(null);
+    	path.setText(volleyBallEvent.LoadFileAndAddToTree(f));
+    	
     }
 
     @FXML
-    void loadFile(ActionEvent event) throws IOException {
-    	path.setText(volleyBallEvent.LoadFileAndAddToTree());
-    	message.setVisible(true);
+    void loadFile(ActionEvent event){
+    	if(f!=null)
+    		message.setVisible(true);
+    	else {
+    		message.setVisible(true);
+    		message.setText("Sorry we were unnable to load the new gest(s)");
+    	}
     }
 
     @FXML
@@ -133,6 +145,7 @@ public class VolleyBallController {
     	gender.setText(p.getGender());
     	country.setText(p.getCountry());
     	birthday.setText(p.getBirthday());
+    	volleyBallEvent.amplitud(p);
     }
 
     @FXML
