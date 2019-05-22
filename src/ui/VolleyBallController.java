@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.ScrollPane;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -75,6 +76,9 @@ public class VolleyBallController {
     @FXML
     private Label birthday;
     
+    @FXML
+    private ScrollPane show;
+    
     private VolleyBallEvent volleyBallEvent; 
     
     private FileChooser fileChooser;
@@ -144,6 +148,21 @@ public class VolleyBallController {
     	gender.setText(p.getGender());
     	country.setText(p.getCountry());
     	birthday.setText(p.getBirthday());
+    }
+    
+    @FXML
+    void graphParticipant(ActionEvent event) {
+    	System.out.println("se intento");
+    }
+
+    public void graph(int n, int y, Participant p) {
+    	System.out.println("se intento");
+    }
+    
+    
+    @FXML
+    void graphSpectators(ActionEvent event) {
+    	System.out.println("se intento");
     }
 
     @FXML

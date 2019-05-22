@@ -137,6 +137,8 @@ public class VolleyBallEvent {
 
 		}
 	}
+	
+	
 	public boolean notChoice(int n, int[]a) {
 		boolean flag=true;
 		for(int i=0;i<a.length;i++) {
@@ -146,6 +148,8 @@ public class VolleyBallEvent {
 		}
 		return flag;
 	}
+	
+	
 	public void addingOficialParticipants(Participant newOne){
 		if(first == null){
 			first = newOne;
@@ -160,6 +164,8 @@ public class VolleyBallEvent {
 			current.setPrev(temp);
 		}
 	}
+	
+	
 	public Participant searchOficialParticipant(int n) {
 		Participant current = first;
 		Participant returned = null;
