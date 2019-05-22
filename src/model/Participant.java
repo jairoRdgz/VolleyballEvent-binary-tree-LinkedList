@@ -3,7 +3,7 @@ package model;
 import javafx.scene.image.Image;
 
 public class Participant implements Comparable<Participant>{
-	private int depth;
+	
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -18,8 +18,7 @@ public class Participant implements Comparable<Participant>{
 	private Participant prev;
 	
 	
-	public Participant(int d,int id, String firstName, String lastName, String email, String gender, String country, Image photo, String birthday) {
-		this.depth = d;
+	public Participant(int id, String firstName, String lastName, String email, String gender, String country, Image photo, String birthday) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -29,17 +28,6 @@ public class Participant implements Comparable<Participant>{
 		this.photo = photo;
 		this.birthday = birthday;
 	}
-
-
-	public int getDepth() {
-		return depth;
-	}
-
-
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-
 
 	public int getId() {
 		return id;

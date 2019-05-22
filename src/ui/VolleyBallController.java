@@ -83,7 +83,6 @@ public class VolleyBallController {
 
     @FXML
     void exportFile(ActionEvent event) throws IOException {
-  
     	fileChooser = new FileChooser();
     	fileChooser.setTitle("Open Resource File");
     	fileChooser.getExtensionFilters().addAll(
@@ -145,7 +144,6 @@ public class VolleyBallController {
     	gender.setText(p.getGender());
     	country.setText(p.getCountry());
     	birthday.setText(p.getBirthday());
-    	volleyBallEvent.amplitud(p);
     }
 
     @FXML
