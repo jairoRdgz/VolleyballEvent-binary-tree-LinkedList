@@ -3,6 +3,7 @@ package model;
 import javafx.scene.image.Image;
 
 public class Participant implements Comparable<Participant>{
+	
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -27,7 +28,6 @@ public class Participant implements Comparable<Participant>{
 		this.photo = photo;
 		this.birthday = birthday;
 	}
-
 
 	public int getId() {
 		return id;

@@ -1,8 +1,9 @@
 package ui;
 
+import java.awt.ScrollPane;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Participant;
 import model.VolleyBallEvent;
@@ -76,23 +76,33 @@ public class VolleyBallController {
     @FXML
     private Label birthday;
     
-    private VolleyBallEvent volleyBallEvent;
+    @FXML
+    private ScrollPane show;
+    
+    private VolleyBallEvent volleyBallEvent; 
+    
+    private FileChooser fileChooser;
+    
+    private File f;
 
     @FXML
-    void exportFile(ActionEvent event) {
-    	Stage stage = new Stage();
-    	FileChooser fileChooser = new FileChooser();
+    void exportFile(ActionEvent event) throws IOException {
+    	fileChooser = new FileChooser();
     	fileChooser.setTitle("Open Resource File");
-    	fileChooser.showOpenDialog(stage);
+    	fileChooser.getExtensionFilters().addAll(
+    			new FileChooser.ExtensionFilter("CSV", "*.csv"));
+    	f = fileChooser.showOpenDialog(null);
+    	path.setText(volleyBallEvent.LoadFileAndAddToTree(f));
+    	
     }
 
     @FXML
-    void loadFile(ActionEvent event) throws IOException {
-    	/*path.setText(volleyBallEvent.LoadFileAndAddToTree());
-    	message.setVisible(true);*/
-    	List<Participant> l = volleyBallEvent.amplitud();
-    	for(int i=0; i<l.size(); i++) {
-    		System.out.println(l.get(i).getId()+"");
+    void loadFile(ActionEvent event){
+    	if(f!=null)
+    		message.setVisible(true);
+    	else {
+    		message.setVisible(true);
+    		message.setText("Sorry we were unnable to load the new gest(s)");
     	}
     }
 
@@ -138,6 +148,21 @@ public class VolleyBallController {
     	gender.setText(p.getGender());
     	country.setText(p.getCountry());
     	birthday.setText(p.getBirthday());
+    }
+    
+    @FXML
+    void graphParticipant(ActionEvent event) {
+    	System.out.println("se intento");
+    }
+
+    public void graph(int n, int y, Participant p) {
+    	System.out.println("se intento");
+    }
+    
+    
+    @FXML
+    void graphSpectators(ActionEvent event) {
+    	System.out.println("se intento");
     }
 
     @FXML
